@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+    <div class="header">
+        <div class="center_div">
+            <h2>mark counter :)</h2>
+            <div class="center_space">
+                <div class="img_side">
+                    <img src="images/46d41b8d.png" alt="student" width="250">
+                    <input type="button" value="Result" onclick="counter();">
+                </div>
+                <div class="form_side">
+                    <form action="">
+                        <input type="text" id="cplus" placeholder="c++ number">
+                        <input type="text" id="java" placeholder="java number">
+                        <input type="text" id="py" placeholder="Python number">
+                        <input type="text" id="swift" placeholder="swift number">
+                        <input type="text" id="js" placeholder="Java script number">
+                    </form>
+                    <input type="button" value="Result" onclick="counter();">
+                    <div class="res">
+                        <p id="showres">type your subject number</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function counter(){
+            var cplus = document.getElementById('cplus').value;
+            var java = document.getElementById('java').value;
+            var py = document.getElementById('py').value;
+            var swift = document.getElementById('swift').value;
+            var js = document.getElementById('js').value;
+            var grade = "";
+            var pf= "";
+            
+
+            var totalNum =  parseFloat(cplus) + parseFloat(java) + parseFloat(py) + parseFloat(swift) + parseFloat(js);
+            // alert(totalNum);
+
+            var pers = (totalNum/500) * 100;
+            console.log(pers);
+
+            if (pers <= 100 && pers >= 80) {
+               grade = "A"; 
+            }else if(pers <= 79 && pers >= 60){
+                grade = "B";
+            }
+            else if(pers <= 59 && pers >= 40){
+                grade = "C";
+            }else{
+                grade = "F";
+            }
+
+            if(pers >= 40){
+                pf = "congrulation! you are passed";
+            }else{
+                pf = "opps you are failed";
+            }
+            document.getElementById('showres').innerHTML = "total marks <strong><i>500</i></strong>" +
+"<br>"+ " your Marks is " + totalNum + "<br> percentage " + 
+            pers + "%" + "  grade is " + "<i>" +grade + "</i>" + "<br>" + pf;
+        }
+    </script>
+</body>
+</html>
